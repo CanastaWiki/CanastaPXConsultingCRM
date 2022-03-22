@@ -4,7 +4,7 @@
 	"language": "en",
 	"url": "https:\/\/github.com\/CanastaWiki\/CanastaPXConsultingCRM",
 	"packages": {
-		"HEALD Person": {
+		"Canasta Consulting CRM": {
 			"globalID": "wiki.canasta.consulting-crm",
 			"description": "CRM (customer-relationship management) for a consulting company, specifically web-based",
 			"version": "0.1",
