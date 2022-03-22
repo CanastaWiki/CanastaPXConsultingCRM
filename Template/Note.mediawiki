@@ -1,0 +1,7 @@
+<span style="border:1px; border-style:solid; border-radius: 7px; border-color:#ddffdd; background-color:#f2fff2; padding:0.1em; margin:0.1em; display: inline-block;">[[File:Bulbgraph.png|18px|Note|link=]]&nbsp;'''Note:'''&nbsp;&nbsp;{{{1|}}}</span><noinclude>
+== Usage ==
+Lightbulb Note:
+<pre><nowiki>
+{{Note|Your note text}}
+</nowiki></pre>
+</noinclude>
