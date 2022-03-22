@@ -12,14 +12,14 @@ This is the "Customer" template.  It should be called in the following format:
 |Declined Reason=
 |Employees=
 |Project Manager=
-|Wiki Site=
+|Project Site=
 |Date Awarded=
 |Tags=
 |Notes=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=Customers|Image=File|Website=URL|Address=Text|Coordinates=Coordinates|Industry=List (,) of String|Stage=Text (allowed values=Lead, Opportunity, Proposal, Contract, SaaS, Declined, Former)|Declined_Reason=String|Employees=Integer|Project_Manager=Page|Wiki_Site=URL|Date_Awarded=Date|Tags=List (,) of String|Notes=Text}}
+{{#cargo_declare:_table=Customers|Image=File|Website=URL|Address=Text|Coordinates=Coordinates|Industry=List (,) of String|Stage=Text (allowed values=Lead, Opportunity, Proposal, Contract, SaaS, Declined, Former)|Declined_Reason=String|Employees=Integer|Project_Manager=Page|Project_Site=URL|Date_Awarded=Date|Tags=List (,) of String|Notes=Text}}
 </noinclude><includeonly>{{#cargo_store:_table=Customers}}
 {| style="width: 30em; font-size: 90%; border: 1px solid #aaaaaa; background-color: #f9f9f9; color: black; margin-bottom: 0.5em; margin-left: 1em; padding: 0.2em; float: right; clear: right; text-align:left;"
 | style="text-align:center; background-color:#0CF7B5; padding:2px; border:1px solid #777777;" colspan="2" |<span style="font-size:large; font-weight:bold;">{{#getdisplaytitle:{{FULLPAGENAME}}}}</span>
@@ -49,7 +49,7 @@ Edit the page to see the template text.
 |-
 | colspan="2" style="text-align:center; background-color:#0CF7B5; padding:2px; border:1px solid #777777;" | '''Customer Information'''
 |-
-| '''Wiki Site:''' || {{{Wiki Site|}}}
+| '''Project Site:''' || {{{Project Site|}}}
 |-
 | '''Date Awarded:''' || {{#if: {{{Date Awarded|}}} | {{#time:F j, Y|{{{Date Awarded|}}}}} }}
 |-
