@@ -1,0 +1,30 @@
+{{#vardefine:Lead| {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Lead'}} }} {{#vardefine:Opportunity| {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Opportunity'}} }} {{#vardefine:Proposal| {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Proposal'}} }}
+{{#vardefine:SaaS| {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS'}} }} {{#vardefine:Contract| {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Contract'}} }} {{#vardefine:Customer| {{#expr: {{#expr: {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS'|no html}} - {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS' AND Tags HOLDS 'Personal'|no html}} }} + {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Contract'|no html}} }} }} {{#vardefine:Ghosted| {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Tags HOLDS 'Ghosted'}} }}<div style="float:right; margin-left:15px; margin-bottom:20px;"><div id="sales-diagram" style="display:flex; flex-direction:row;">
+
+	<div id="sales-funnel">
+		<div style="border-top:40px solid #5271FF; border-left:15px solid transparent; border-right:15px solid transparent; height:0; width:100px; text-align:center;"><div style="transform:translate(0, -30px); font-weight:bold;">[[Sales pipeline#Lead|<span style="color:black;">{{#var:Lead}}</span>]]</div></div>
+		<div style="border-top:40px solid #91A4FA; border-left:15px solid transparent; border-right:15px solid transparent; height:0; width:70px; margin-left:15px; text-align:center;"><div style="transform:translate(0, -30px); font-weight:bold;">[[Sales pipeline#Opportunity|<span style="color:black;">{{#var:Opportunity}}</span>]]</div></div>
+		<div style="border-top:40px solid #9AEDB1; border-left:15px solid transparent; border-right:15px solid transparent; height:0; width:40px; margin-left:30px; text-align:center;"><div style="transform:translate(0, -30px); font-weight:bold;">[[Sales pipeline#Proposal|<span style="color:black;">{{#var:Proposal}}</span>]]</div></div>
+		<div style="background-color:#7ED957; height:47px; width:40px; margin-left:45px; text-align:center;"><div style="transform:translate(0, 14px); font-weight:bold;">[[Sales pipeline#Contract|<span style="color:black;">{{#var:Customer}}</span>]]</div></div>
+	</div id="sales-funnel">
+
+	<div id="legend" style="display:flex; flex-direction:column; justify-content:flex-end;">
+		<div id="ghosted" style="flex-grow:2; position:relative; font-weight:bold; ">[[File:Ghost-Icon.png|right|40px|link=Sales pipeline#Ghosted]]<div style="position:absolute; top:40%; left:85%; transform:translate(-50%, -50%);">[[Sales pipeline#Ghosted|<span style="color:black;">{{#var:Ghosted}}</span>]]</div></div>
+		<div id="lead"><div style="display:inline-block; margin-right:5px; background-color:#5271FF; width:22px;">&nbsp;</div>[[Sales pipeline#Lead|<span style="color:#5271FF;>Lead</span>]]</div>
+		<div id="opportunity" style="margin-top:2px;"><div style="display:inline-block; margin-right:5px; background-color:#91A4FA; width:22px;">&nbsp;</div>[[Sales pipeline#Opportunity|<span style="color:#91A4FA;>Opportunity</span>]]</div>
+		<div id="proposal" style="margin-top:2px;"><div style="display:inline-block; margin-right:5px; background-color:#9AEDB1; width:22px;">&nbsp;</div>[[Sales pipeline#Proposal|<span style="color:#9AEDB1;>Proposal</span>]]</div>
+		<div id="customer" style="margin-top:2px;"><div style="display:inline-block; margin-right:5px; background-color:#7ED957; width:22px;">&nbsp;</div>[[Sales pipeline#SaaS|<span style="color:#7ED957;>SaaS</span>]]/[[Sales pipeline#Contract|<span style="color:#7ED957;>Contract</span>]]</div>
+	</div id="legend">
+
+</div id="sales-diagram">
+
+</div><noinclude>
+== Usage ==
+Sales pipeline diagram:
+<pre style="max-width:250px;"><nowiki>
+{{Sales pipeline diagram}}
+</nowiki></pre>
+
+
+Placed on any page, it will show all the sales pipeline information graphically.
+</noinclude>
