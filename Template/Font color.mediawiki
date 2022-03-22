@@ -1,0 +1,33 @@
+{{ {{{|safesubst:}}}#if: {{{text|{{{3|}}}}}}
+ | {{ {{{|safesubst:}}}#if: {{{link|}}}
+      | {{ {{{|safesubst:}}}#ifeq: {{{link|}}} | yes
+      | [[ {{ trim | {{{text|{{{3|}}}}}} }}|<span style="background-color:{{ trim | {{{bg|{{{2|inherit}}}}}} }}; color:{{ trim | {{{fg|{{{1|inherit}}}}}} }};">{{ trim | {{{text|{{{3|}}}}}} }}</span>]]
+      | [[{{{link|}}}|<span style="background-color:{{ trim | {{{bg|{{{2|inherit}}}}}} }}; color:{{ trim | {{{fg|{{{1|inherit}}}}}} }};">{{ trim | {{{text|{{{3|}}}}}} }}</span>]]
+      }}
+    | <span style="background-color:{{ trim | {{{bg|{{{2|inherit}}}}}} }}; color:{{ trim | {{{fg|{{{1|inherit}}}}}} }};">{{ trim | {{{text|{{{3|}}}}}} }}</span>
+    }}
+ | {{ {{{|safesubst:}}}#if: {{{link|}}}
+      | {{ {{{|safesubst:}}}#ifeq: {{{link|}}} | yes
+      | [[ {{ trim | {{{bg|{{{2|}}}}}} }} |<span style="color:{{ trim | {{{fg|{{{1|inherit}}}}}} }};">{{ trim | {{{bg|{{{2|}}}}}} }}</span>]]
+      | [[ {{ trim | {{{link|}}} }} |<span style="color:{{ trim | {{{fg|{{{1|inherit}}}}}} }};">{{ trim | {{{bg|{{{2|}}}}}} }}</span>]]
+    }}
+  | <span style="color:{{ trim | {{{fg|{{{1|inherit}}}}}} }};">{{ trim | {{{bg|{{{2|}}}}}} }}</span>
+  }}
+}}<noinclude>
+== Usage ==
+# '''Text color:'''
+#: <code><nowiki>
+{{Font color|blue|This is blue text.}}
+</nowiki></code>
+#: {{Font color|blue|This is blue text.}}
+# '''Highlighting:'''
+#: <code><nowiki>
+{{Font color||yellow|This is text with yellow highlighting.}}
+</nowiki></code>
+#: {{Font color||yellow|This is text with yellow highlighting.}}
+# '''Text color with highlighting:'''
+#: <code><nowiki>
+{{Font color|blue|yellow|This is blue text with yellow highlighting.}}
+</nowiki></code>
+#: {{Font color|blue|yellow|This is blue text with yellow highlighting.}}
+</noinclude>
