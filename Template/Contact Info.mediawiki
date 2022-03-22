@@ -1,0 +1,15 @@
+<noinclude>
+This is the "Contact Info" template.  It should be called in the following format:
+<pre>
+{{Client Info
+|Name=
+|Title=
+|Phone=
+|Email=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=Contact_Info|Name=String|Title=String|Phone=String|Email=Email}}
+</noinclude><includeonly>{{#cargo_store:_table=Contact_Info}}
+* {{#if: {{{Email|}}} | '''[mailto:{{{Email|}}} {{{Name|}}}]''' | '''{{{Name|}}}''' }} {{#if: {{{Title|}}} | ({{{Title|}}}) }} {{{Phone|}}}
+</includeonly>
