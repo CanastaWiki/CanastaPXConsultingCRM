@@ -6,9 +6,8 @@ SaaS applications are also known as Web-based software, on-demand software and h
 SaaS apps are typically accessed by users using a thin client, e.g. via a web browser. SaaS has become a common delivery model for many business applications, including office software, messaging software, payroll processing software, DBMS software, management software, CAD software, development software, gamification, virtualization, accounting, collaboration, Customer Relationship Management (CRM), Management Information Systems (MIS), Enterprise Resource Planning (ERP), invoicing, Human Resource Management (HRM), talent acquisition, learning management systems, Content Management (CM), Geographic Information Systems (GIS), and service desk management.  SaaS has been incorporated into the strategy of nearly all leading enterprise software companies.
 
 
-==WikiWorks SaaS==
-Our goal is to increase our SaaS baseline to allow for feature development to be paid for by SaaS revenue.
-* WikiWorks [[Sales pipeline#SaaS|SaaS]] customers (currently we have {{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS'}}'''}})
+==Our SaaS projects==
+* Our [[Sales pipeline#SaaS|SaaS]] customers (currently we have {{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS'}}'''}})
 
 
 
