@@ -1,0 +1,18 @@
+[[File:SaaS.png|thumb]]
+'''Software as a service''' ('''SaaS''') is a software licensing and delivery model in which software is licensed on a subscription basis and is centrally hosted.
+
+SaaS applications are also known as Web-based software, on-demand software and hosted software.  The term "Software as a Service" (SaaS) is considered to be part of the nomenclature of cloud computing, along with Infrastructure as a Service (IaaS), Platform as a Service (PaaS), Desktop as a Service (DaaS), Managed Software as a Service (MSaaS), Mobile Backend as a Service (MBaaS), Datacenter as a Service (DCaaS), and Information Technology Management as a Service (ITMaaS).
+
+SaaS apps are typically accessed by users using a thin client, e.g. via a web browser. SaaS has become a common delivery model for many business applications, including office software, messaging software, payroll processing software, DBMS software, management software, CAD software, development software, gamification, virtualization, accounting, collaboration, Customer Relationship Management (CRM), Management Information Systems (MIS), Enterprise Resource Planning (ERP), invoicing, Human Resource Management (HRM), talent acquisition, learning management systems, Content Management (CM), Geographic Information Systems (GIS), and service desk management.  SaaS has been incorporated into the strategy of nearly all leading enterprise software companies.
+
+
+==WikiWorks SaaS==
+Our goal is to increase our SaaS baseline to allow for feature development to be paid for by SaaS revenue.
+* WikiWorks [[Sales pipeline#SaaS|SaaS]] customers (currently we have {{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS'}}'''}})
+
+
+
+==Links==
+* https://en.wikipedia.org/wiki/Software_as_a_service
+
+__NOCACHE__
