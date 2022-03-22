@@ -1,0 +1,67 @@
+<noinclude>
+This is the "Customer" template.  It should be called in the following format:
+<pre>
+{{Customer
+|Image=
+|Website=
+|Address=
+|Coordinates=
+|Contact Info=
+|Industry=
+|Stage=
+|Declined Reason=
+|Employees=
+|Project Manager=
+|Wiki Site=
+|Date Awarded=
+|Tags=
+|Notes=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=Customers|Image=File|Website=URL|Address=Text|Coordinates=Coordinates|Industry=List (,) of String|Stage=Text (allowed values=Lead, Opportunity, Proposal, Contract, SaaS, Declined, Former)|Declined_Reason=String|Employees=Integer|Project_Manager=Page|Wiki_Site=URL|Date_Awarded=Date|Tags=List (,) of String|Notes=Text}}
+</noinclude><includeonly>{{#cargo_store:_table=Customers}}
+{| style="width: 30em; font-size: 90%; border: 1px solid #aaaaaa; background-color: #f9f9f9; color: black; margin-bottom: 0.5em; margin-left: 1em; padding: 0.2em; float: right; clear: right; text-align:left;"
+| style="text-align:center; background-color:#0CF7B5; padding:2px; border:1px solid #777777;" colspan="2" |<span style="font-size:large; font-weight:bold;">{{#getdisplaytitle:{{FULLPAGENAME}}}}</span>
+|-
+| colspan="2" | {{#if: {{{Image|}}} | [[File:{{{Image|}}}|center|366x366px]]}}
+|-
+| colspan="2" style="text-align:center; background-color:#0CF7B5; padding:2px; border:1px solid #777777;" | '''Company Information'''
+|-
+| style="width:9em; vertical-align: top;" | '''Website:''' || style="overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: break-all; word-break: break-word;" | {{{Website|}}}
+|-
+| style="vertical-align: top;" | '''Address:''' || style="overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: break-all; word-break: break-word;" | {{ #if: {{{Address|}}} | [https://www.google.com/maps/dir/Current+Location/{{#replace:{{urlencode:{{{Address|}}}|QUERY}}|%0A|}} {{#replace:{{#replace:{{urlencode:{{{Address|}}}|WIKI}}|%0A|}}|_|<nowiki/> <nowiki/>}}] }}
+|-
+| style="vertical-align: top;" | '''Tags:''' || {{#arraymap:{{{Tags|}}}|,|@@@@|[[@@@@]]}}
+|-
+| colspan="2" style="text-align:center; background-color:#0CF7B5; padding:2px; border:1px solid #777777;" | '''Sales/Support'''
+|-
+| '''[[Sales pipeline|Stage]]:''' || [[Sales pipeline#{{{Stage|}}}|{{{Stage|}}}]] {{#if: {{{Declined Reason|}}} | ({{{Declined Reason|}}}) }}
+|- style="vertical-align:top;"
+| colspan="2" | '''Contact(s):''' <br>
+{{{Contact Info|}}}
+|-
+| style="vertical-align: top;" | '''Industry:''' || {{{Industry|}}}
+|-
+| '''Employees:''' || {{{Employees|}}}
+|-
+| '''Project Manager:''' || {{#if: {{{Project Manager|}}} | [[{{{Project Manager|}}}|{{#sub:{{{Project Manager|}}}|5}}]] }}
+|-
+| colspan="2" style="text-align:center; background-color:#0CF7B5; padding:2px; border:1px solid #777777;" | '''Customer Information'''
+|-
+| '''Wiki Site:''' || {{{Wiki Site|}}}
+|-
+| '''Date Awarded:''' || {{#if: {{{Date Awarded|}}} | {{#time:F j, Y|{{{Date Awarded|}}}}} }}
+|-
+| colspan="2" style="text-align:center; background-color:#0CF7B5; padding:2px; border:1px solid #777777;" | '''Map'''
+|-
+| colspan="2" align="center" | {{#if: {{{Coordinates|}}} | {{#cargo_display_map:point={{{Coordinates|}}}|width=365px|format=leaflet}} }}
+|}
+{{{Notes|}}}
+
+
+
+
+__NOTOC__
+[[Category:Customers]]
+</includeonly>
