@@ -74,3 +74,5 @@ They are either Personal or WikiWorks business related.  Currently we have ({{Fo
 We've had good conversations/discussions but they suddenly went dark and aren't responding anymore.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Tags HOLDS 'Ghosted'}}'''}}) customers who've Ghosted us:
 
 {{#cargo_query:tables=Customers|fields=Image,_pageName,CONCAT( '[[', _pageName, ']]' )=Link|order by=_pageName|format=gallery|mode=nolines|show bytes=0|show dimensions=0|show filename=0|per row=10|limit=500|link field=_pageName|caption field=Link|where=Tags HOLDS 'Ghosted'|default=}}
+
+__NOCACHE__
