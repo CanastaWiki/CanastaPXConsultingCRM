@@ -1,0 +1,76 @@
+{{Sales pipeline diagram}}
+Information about prospective [[:Category:Customers|customers]], deals in the works, current customers, and former customers, there are ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)}}'''}}) total.  To add a new customer, go <big>'''[[:Category:Customers|here]]'''</big>.
+
+The current '''Stages''' are:
+# [[Sales pipeline#Lead|{{Font color|#5271FF;|'''Lead'''}}]] ({{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Lead'}}) 
+# [[Sales pipeline#Opportunity|{{Font color|#91A4FA;|'''Opportunity'''}}]] ({{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Opportunity'}})
+# [[Sales pipeline#Proposal|{{Font color|#9AEDB1;|'''Proposal'''}}]] ({{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Proposal'}})
+# [[Sales pipeline#Contract|{{Font color|#7ED957;|'''Contract'''}}]] ({{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Contract'}}) 
+# [[Sales pipeline#SaaS|{{Font color|#7ED957;|'''SaaS'''}}]] ({{#expr: {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS'|no html}} - {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS' AND Tags HOLDS 'Personal'|no html}} }})
+# [[Sales pipeline#Declined|{{Font color|#ff6666;|'''Declined'''}}]] ({{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Declined'}})
+# [[Sales pipeline#Former|{{Font color|#ff6666;|'''Former'''}}]] ({{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Former'}})
+
+
+==Lead==
+This is a list of potential customers.  They either haven't been contacted yet, or are developing.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Lead'}}'''}}) Leads:
+<div style="column-count:3;-moz-column-count:3;-webkit-column-count:3">
+{{#cargo_query:tables=Customers|fields=_pageName|format=ul|where=Stage='Lead'|default=}}
+</div>
+
+
+==Opportunity==
+This is a list of qualified customers.  They may not have been contacted yet, but they appear to be a good fit.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Opportunity'}}'''}}) Opportunities:
+<div style="column-count:3;-moz-column-count:3;-webkit-column-count:3">
+{{#cargo_query:tables=Customers|fields=_pageName|format=ul|where=Stage='Opportunity'|default=}}
+</div>
+
+
+==Proposal==
+We've sent a proposal, awaiting response.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Proposal'}}'''}}) in proposal:
+
+{{#cargo_query:tables=Customers|fields=_pageName|format=ul|where=Stage='Proposal'|default=}}
+
+
+==Contract==
+We have a work contract, but no ongoing [[Sales pipeline#SaaS|SaaS]].  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Contract'}}'''}}) in Contract:
+
+{{#ifexpr: {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Image IS NULL AND Stage = 'Contract'|no html}} > 0 | List of contract customers missing an image: {{#cargo_query:tables=Customers|fields=_pageName|where=Image IS NULL AND Stage = 'Contract'|format=list|delimiter=&nbsp;•&nbsp;}} }}
+
+{{#cargo_query:tables=Customers|fields=Image,_pageName,CONCAT('[[', _pageName, ']]')=Link|order by=_pageName|format=gallery|mode=nolines|show bytes=0|show dimensions=0|show filename=0|per row=10|limit=500|link field=_pageName|caption field=Link|where=Stage='Contract'|default=}}
+
+==SaaS==
+We have an ongoing [[SaaS]] (this is different than one-time [[Sales pipeline#Contract|Contract]]).  Currently we have ({{Font color|blue|'''{{#expr: {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS'|no html}} - {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS' AND Tags HOLDS 'Personal'|no html}} }}'''}}) SaaS customers:
+
+{{#ifexpr: {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Image IS NULL AND Stage = 'SaaS'|no html}} > 0 | List of SaaS customers missing an image: {{#cargo_query:tables=Customers|fields=_pageName|where=Image IS NULL AND Stage = 'SaaS'|format=list|delimiter=&nbsp;•&nbsp;}} }}
+
+{{#cargo_query:tables=Customers,Customers__Tags = S
+|join on=Customers._ID = S._rowID
+|fields=Customers.Image=Image,Customers._pageName=Customer,CONCAT( '[[', _pageName, ']]' )=Link|order by=_pageName|format=gallery|mode=nolines|show bytes=0|show dimensions=0|show filename=0|per row=10|limit=500|link field=Customer|caption field=Link
+|where=Stage = "SaaS"
+|having=SUM(CASE WHEN S._value="Personal" THEN 1 ELSE 0 END)=0
+|group by=Customer}}
+
+: {{Note|There are ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS' AND Tags HOLDS 'Personal'|no html}}'''}}) [[Sales pipeline#Personal|Personal]] wikis.}}
+
+==Declined==
+We've sent a proposal and it was declined or engaged and they weren't interested.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Declined'}}'''}}) declined customers:
+
+{{#cargo_query:tables=Customers|fields=_pageName,Declined_Reason=|order by=_pageName|format=ul|where=Stage='Declined'|default=}}
+
+==Former==
+They've been a customer, but aren't anymore.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='Former'}}'''}}) former customers:
+
+{{#ifexpr: {{#cargo_query:tables=Customers|fields=COUNT(*)|where=Image IS NULL AND Stage = 'Former'|no html}} > 0 | List of former customers missing an image: {{#cargo_query:tables=Customers|fields=_pageName|where=Image IS NULL AND Stage = 'Former'|format=list|delimiter=&nbsp;•&nbsp;|default=}} }}
+
+{{#cargo_query:tables=Customers|fields=Image,_pageName,CONCAT( '[[', _pageName, ']]' )=Link|order by=_pageName|format=gallery|mode=nolines|show bytes=0|show dimensions=0|show filename=0|per row=10|limit=500|link field=_pageName|caption field=Link|where=Stage='Former'}}
+
+
+==Personal==
+They are either Personal or WikiWorks business related.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Stage='SaaS' AND Tags HOLDS 'Personal'|no html}}'''}}) Personal Wikis:
+
+{{#cargo_query:tables=Customers|fields=Image,_pageName,CONCAT( '[[', _pageName, ']]' )=Link|order by=_pageName|format=gallery|mode=nolines|show bytes=0|show dimensions=0|show filename=0|per row=10|limit=500|link field=_pageName|caption field=Link|where=Stage='SaaS' AND Tags HOLDS 'Personal'|default=}}
+
+==Ghosted==
+We've had good conversations/discussions but they suddenly went dark and aren't responding anymore.  Currently we have ({{Font color|blue|'''{{#cargo_query:tables=Customers|fields=COUNT(*)|where=Tags HOLDS 'Ghosted'}}'''}}) customers who've Ghosted us:
+
+{{#cargo_query:tables=Customers|fields=Image,_pageName,CONCAT( '[[', _pageName, ']]' )=Link|order by=_pageName|format=gallery|mode=nolines|show bytes=0|show dimensions=0|show filename=0|per row=10|limit=500|link field=_pageName|caption field=Link|where=Tags HOLDS 'Ghosted'|default=}}
