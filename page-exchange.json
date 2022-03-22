@@ -1,0 +1,49 @@
+{
+	"publisher": "Canasta Project",
+	"author": "Bryan Hilderbrand",
+	"language": "en",
+	"url": "https:\/\/github.com\/CanastaWiki\/CanastaPXConsultingCRM",
+	"packages": {
+		"HEALD Person": {
+			"globalID": "wiki.canasta.consulting-crm",
+			"description": "CRM (customer-relationship management) for a consulting company, specifically web-based",
+			"version": "0.1",
+			"directoryStructure": {
+				"service": "GitHub",
+				"accountName": "CanastaWiki",
+				"repositoryName": "CanastaPXConsultingCRM",
+				"namespaceSettings": [
+					{
+						"namespace": "NS_MAIN",
+						"fileNamePrefix": "Main/",
+						"fileNameSuffix": ".mediawiki"
+					},
+					{
+						"namespace": "NS_FILE",
+						"fileNamePrefix": "File/",
+						"fileNameSuffix": ".mediawiki",
+						"actualFileNamePrefix": "File/",
+						"actualFileNameSuffix": ""
+					},
+					{
+						"namespace": "NS_TEMPLATE",
+						"fileNamePrefix": "Template/",
+						"fileNameSuffix": ".mediawiki"
+					},
+					{
+						"namespace": "PF_NS_FORM",
+						"fileNamePrefix": "Form/",
+						"fileNameSuffix": ".mediawiki"
+					}
+				]
+			},
+			"requiredExtensions": [
+				"Page Forms",
+				"Variables",
+				"Cargo",
+				"ParserFunctions",
+				"MagicNoCache"
+			]
+		}
+	}
+}
