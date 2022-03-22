@@ -1,0 +1,12 @@
+<div style="float:right; display:inline-block;">{{#cargo_query:tables=Customers|fields=_pageName,Coordinates|format=leaflet|width=400px}}</div>
+{{#default_form:Customer}} You can enter a new customer below or view the [[Special:CargoTables/{{PAGENAME}}|table]].
+
+{{#forminput:form=Customer|button text=Create/Edit Customer|placeholder=Customer Name}}
+{{clear}}
+See the [[Sales pipeline]] for more information. 
+
+
+==Complete list==
+{{#cargo_query:tables=Customers|fields=Image,_pageName,CONCAT( '[[', _pageName, ']]' )=Link|order by=_pageName|format=gallery|mode=nolines|show bytes=0|show dimensions=0|show filename=0|per row=10|limit=500|link field=_pageName|caption field=Link}}
+
+__NOCACHE__
