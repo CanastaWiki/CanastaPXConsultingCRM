@@ -2,11 +2,12 @@
 	"publisher": "Canasta Project",
 	"author": "Bryan Hilderbrand",
 	"language": "en",
+	"licenseName": "CC-BY-SA 3.0",
 	"url": "https:\/\/github.com\/CanastaWiki\/CanastaPXConsultingCRM",
 	"packages": {
 		"Canasta Consulting CRM": {
 			"globalID": "wiki.canasta.consulting-crm",
-			"description": "CRM (customer-relationship management) for a consulting company, specifically web-based",
+			"description": "CRM (customer-relationship management) for a consulting company, specifically a web-based one.",
 			"version": "0.1",
 			"directoryStructure": {
 				"service": "GitHub",
