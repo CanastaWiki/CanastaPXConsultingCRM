@@ -1,0 +1,83 @@
+<noinclude>
+This is the "Customer" form. To create a new Customer page with this form, enter the page name below; if a page with that name already exists, you will be sent to a form to edit that page.
+
+{{#forminput:form=Customer|button text=Create/Edit Customer|placeholder=Customer Name|autocomplete on category=Customers}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{for template|Customer}}}
+{| class="formtable"
+! style="width:115px;" | Image: 
+| {{{field|Image|uploadable|image preview|input type=text}}}
+|-
+! Website: 
+| {{{field|Website}}}
+|-
+! Address: 
+| {{{field|Address|feeds to map=Customer[Coordinates]}}}
+|-
+! Coordinates: 
+| {{{field|Coordinates|input type=leaflet}}}
+|-
+! '''Contact Info:'''
+| <div style="width:900px; vertical-align:center;">{{{field|Contact Info|holds template}}}</div>
+|-
+! Industry: 
+| {{{field|Industry|input type=tokens|cargo table=Customers|cargo field=Industry}}}
+|-
+! Current: 
+| {{{field|Current|input type=radiobutton|mandatory|values=Yes,No|default=No}}}
+|-
+! Stage: 
+| {{{field|Stage|default=Lead|show on select=Declined=>declined}}}
+|}
+
+<div id="declined">
+{| class="formtable"
+! style="width:115px;" | Reason they declined:
+| {{{field|Declined Reason|input type=text|size=50|placeholder=Reason}}}
+|}
+</div>
+
+{| class="formtable"
+! style="width:115px;" | Employees: 
+| {{{field|Employees|input type=text}}}
+|-
+! Project Manager: 
+| {{{field|Project Manager|values from category=Employees|namespace=User|default=User:Bryan Hilderbrand}}}
+|-
+! Wiki Site: 
+| {{{field|Wiki Site}}}
+|-
+! Date Started: 
+| {{{field|Date Awarded|input type=datepicker|date format=MMMM dd, yy}}}
+|-
+! Tags: 
+| {{{field|Tags|input type=tokens|cargo table=Customers|cargo field=Tags|default=Expand}}}
+|-
+! Notes:
+| {{{field|Notes|input type=textarea|autogrow|rows=5|editor=visualeditor}}}
+|}
+{{{end template}}}
+
+{{{for template|Contact Info|multiple|label=Contact Information:|embed in field=Customer[Contact Info]}}}
+{|
+| style="display:inline-block;" | '''Name:''' || '''Title:''' || '''Phone:''' || '''Email:'''
+|-
+| style="display:inline-block;" | {{{field|Name|mandatory|size=30|placeholder=First Last}}} || {{{field|Title|size=20|placeholder=Owner/Manager/Engineer}}} || {{{field|Phone|size=15|placeholder=(XXX) XXX-XXXX}}} || {{{field|Email|size=30|placeholder=Email}}}
+|}
+{{{end template}}}
+
+
+
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+
+<noinclude>
+: {{Note|Also see the '''[[:Category:{{PAGENAME}}s|category]]''' and '''[[Special:CargoTables/{{PAGENAME}}s|table]]''' for this '''[[Special:Forms|form]]'''.}}
+</noinclude>
